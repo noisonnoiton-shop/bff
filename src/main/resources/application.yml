@@ -10,7 +10,7 @@ spring:
     store-type: redis
 #    spring.session.store-type=redis
   redis:
-    host: 34.211.184.139
+    host: 20.194.18.209
     port: 6379
 
 management:

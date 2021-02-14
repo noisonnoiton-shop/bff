@@ -1,0 +1,58 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: bff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bff
+  template:
+    metadata:
+      labels:
+        app: bff
+    spec:
+      containers:
+        - name: bff
+          image: registry.localtest.com/bff:1.1
+          ports:
+            - containerPort: 8081
+      hostAliases:
+      - ip: "20.194.18.209"
+        hostnames:
+        - "account.skcc.co.kr"
+        - "apigateway.skcc.co.kr"
+        - "bff.skcc.co.kr"
+        - "cart.skcc.co.kr"
+        - "order.skcc.co.kr"
+        - "payment.skcc.co.kr"
+        - "product.skcc.co.kr"
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: bff-ingress
+spec:
+  rules:
+  - host: bff.skcc.co.kr
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: bff-svc
+          servicePort: 8081
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bff-svc
+  labels:
+    app: bff
+spec:
+  ports:
+    - port: 8081
+      targetPort: 8081
+      name: bff-svc
+  selector:
+    app: bff

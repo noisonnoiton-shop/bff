@@ -10,9 +10,9 @@ spring:
     store-type: redis
 #    spring.session.store-type=redis
   redis:
-    host: 52.231.90.64
+    host: 127.0.0.1
     port: 6379
-
+    password: skcc
 management:
   endpoints:
     web:
@@ -22,16 +22,23 @@ management:
 
 api:
   account:
-    url: http://apigateway.skcc.co.kr/account
+    #url: http://apigateway.skcc.co.kr/account
+    url: http://localhost:8090/account
   accountbank:
-    url: http://apigateway.skcc.co.kr/accountbank
+    #url: http://apigateway.skcc.co.kr/accountbank
+    url: http://localhost:8090/accountbank
   cart:
-    url: http://apigateway.skcc.co.kr/cart
+    #url: http://apigateway.skcc.co.kr/cart
+    url: http://localhost:8090/cart
   category:
-    url: http://apigateway.skcc.co.kr/category
+    #url: http://apigateway.skcc.co.kr/category
+    url: http://localhost:8090/category
   order:
-    url: http://apigateway.skcc.co.kr/order
+    #url: http://apigateway.skcc.co.kr/order
+    url: http://localhost:8090/order
   payment:
-    url: http://apigateway.skcc.co.kr/payment
+    #url: http://apigateway.skcc.co.kr/payment
+    url: http://localhost:8090/payment
   product:
-    url: http://apigateway.skcc.co.kr/product
+    #url: http://apigateway.skcc.co.kr/product
+    url: http://localhost:8090/product

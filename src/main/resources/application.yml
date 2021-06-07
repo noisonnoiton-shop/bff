@@ -22,30 +22,30 @@ management:
         include:
         - "*"
 
-api:
-  account:
-    # url: http://apigateway:8090/account
-    url: http://localhost:8090/account
-  cart:
-    # url: http://apigateway:8090/cart
-    url: http://localhost:8090/cart
-  order:
-    # url: http://apigateway:8090/order
-    url: http://localhost:8090/order
-  payment:
-    # url: http://apigateway:8090/payment
-    url: http://localhost:8090/payment
-  product:
-    # url: http://apigateway:8090/product
-    url: http://localhost:8090/product
 # api:
 #   account:
-#     url: https://yienng9ub2.execute-api.ap-northeast-2.amazonaws.com/account
+#     # url: http://apigateway:8090/account
+#     url: http://localhost:8090/account
 #   cart:
-#     url: https://ie6carkx4e.execute-api.ap-northeast-2.amazonaws.com/cart
+#     # url: http://apigateway:8090/cart
+#     url: http://localhost:8090/cart
 #   order:
-#     url: https://0xd2dpvvm8.execute-api.ap-northeast-2.amazonaws.com/order
+#     # url: http://apigateway:8090/order
+#     url: http://localhost:8090/order
 #   payment:
-#     url: https://vfny9to657.execute-api.ap-northeast-2.amazonaws.com/payment
+#     # url: http://apigateway:8090/payment
+#     url: http://localhost:8090/payment
 #   product:
-#     url: https://1x9yezcw0g.execute-api.ap-northeast-2.amazonaws.com/product
+#     # url: http://apigateway:8090/product
+#     url: http://localhost:8090/product
+api:
+  account:
+    url: https://yienng9ub2.execute-api.ap-northeast-2.amazonaws.com/account
+  cart:
+    url: https://ie6carkx4e.execute-api.ap-northeast-2.amazonaws.com/cart
+  order:
+    url: https://0xd2dpvvm8.execute-api.ap-northeast-2.amazonaws.com/order
+  payment:
+    url: https://vfny9to657.execute-api.ap-northeast-2.amazonaws.com/payment
+  product:
+    url: https://1x9yezcw0g.execute-api.ap-northeast-2.amazonaws.com/product

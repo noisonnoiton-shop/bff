@@ -12,8 +12,8 @@ spring:
   session:
     store-type: redis
   redis:
-    #host: redis-session
-    host: localhost
+    host: redis-session
+    # host: localhost
     port: 6379
 management:
   endpoints:

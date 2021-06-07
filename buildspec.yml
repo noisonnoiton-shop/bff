@@ -17,7 +17,8 @@ phases:
       - echo Build started on `date`
       - echo maven build,,
       - pwd
-      - mvn clean package -DskipTests --quiet # -Dmaven.repo.local=$CODEBUILD_SHOP
+      # - mvn clean package -DskipTests --quiet # -Dmaven.repo.local=$CODEBUILD_SHOP
+      - mvn clean package -DskipTests # -Dmaven.repo.local=$CODEBUILD_SHOP
       - echo docker build,,
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG 
@@ -32,6 +33,6 @@ artifacts:
     - appspec.yml
   discard-paths: yes
 
-cache:
-  paths:
-    - '/root/.m2/**/*'
+# cache:
+#   paths:
+#     - '/root/.m2/**/*'

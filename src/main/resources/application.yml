@@ -8,9 +8,9 @@ spring:
     prefix: classpath:/static/html/
   session:
     store-type: redis
-#    spring.session.store-type=redis
   redis:
-    host: redis-session
+    #host: redis-session
+    host: localhost
     port: 6379
 management:
   endpoints:
@@ -21,23 +21,17 @@ management:
 
 api:
   account:
-    #url: http://apigateway.skcc.co.kr/account
-    url: http://apigateway:8090/account
-  accountbank:
-    #url: http://apigateway.skcc.co.kr/accountbank
-    url: http://apigateway:8090/accountbank
+    # url: http://apigateway:8090/account
+    url: http://localhost:8090/account
   cart:
-    #url: http://apigateway.skcc.co.kr/cart
-    url: http://apigateway:8090/cart
-  category:
-    #url: http://apigateway.skcc.co.kr/category
-    url: http://apigateway:8090/category
+    # url: http://apigateway:8090/cart
+    url: http://localhost:8090/cart
   order:
-    #url: http://apigateway.skcc.co.kr/order
-    url: http://apigateway:8090/order
+    # url: http://apigateway:8090/order
+    url: http://localhost:8090/order
   payment:
-    #url: http://apigateway.skcc.co.kr/payment
-    url: http://apigateway:8090/payment
+    # url: http://apigateway:8090/payment
+    url: http://localhost:8090/payment
   product:
-    #url: http://apigateway.skcc.co.kr/product
-    url: http://apigateway:8090/product
+    # url: http://apigateway:8090/product
+    url: http://localhost:8090/product

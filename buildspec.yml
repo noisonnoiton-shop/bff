@@ -33,6 +33,6 @@ artifacts:
     - appspec.yml
   discard-paths: yes
 
-cache:
-  paths:
-    - '/root/.m2/**/*'
+# cache:
+#   paths:
+#     - '/root/.m2/**/*'

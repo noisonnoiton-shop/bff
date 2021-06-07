@@ -4,9 +4,9 @@ server:
 spring:
   application:
     name: js-bff-service
-  config:
-    import: 
-      - optional:application.yml
+  # config:
+  #   import: 
+  #     - optional:application.yml
   thymeleaf:
     prefix: classpath:/static/html/
   session:

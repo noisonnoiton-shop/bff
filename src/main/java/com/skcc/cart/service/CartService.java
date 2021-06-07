@@ -45,7 +45,7 @@ public class CartService {
 	}
 	
 	public List<Cart> getCartsByAccountId(long accountId){
-		return Arrays.asList(this.restTemplate.getForObject(String.format("%s%s%d", apiGatewayUrl, "/v1/carts/", accountId), Cart[].class));
+		return Arrays.asList(this.restTemplate.getForObject(String.format("%s%s%d", apiGatewayUrl, "/v1/carts/account/", accountId), Cart[].class));
 	}
 	
 	public void deleteCart(long id) {

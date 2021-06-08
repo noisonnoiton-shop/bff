@@ -21,7 +21,6 @@ public class AccountService {
 	}
 	
 	public Account login (Account account) {
-		System.out.println("apiGatewayUrl ============ " + apiGatewayUrl);
 		return this.restTemplate.postForObject(String.format("%s%s", apiGatewayUrl, "/v1/login"), account, Account.class);
 	}
 	

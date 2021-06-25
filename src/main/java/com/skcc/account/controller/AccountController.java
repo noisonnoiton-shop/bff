@@ -3,25 +3,21 @@ package com.skcc.account.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.skcc.account.domain.Account;
+import com.skcc.account.service.AccountService;
+import com.skcc.config.SessionScope;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skcc.account.domain.Account;
-import com.skcc.account.service.AccountService;
-import com.skcc.config.SessionScope;
-
 @RestController
 @RequestMapping("/v1")
 public class AccountController {
 
 	private AccountService accountService;
-	
-	private static final Logger log = LoggerFactory.getLogger(AccountController.class);
 
 	@Autowired
 	SessionScope sessionScope;

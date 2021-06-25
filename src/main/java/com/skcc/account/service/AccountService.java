@@ -30,14 +30,7 @@ public class AccountService {
 	
 	public boolean createAccount(Account account) {
 		return this.restTemplate.postForObject(String.format("%s%s", apiGatewayUrl, "/v1/accounts"), account, boolean.class);
-
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.setContentType(MediaType.APPLICATION_JSON);
-//		HttpEntity<Account> entity = new HttpEntity<Account>(account, headers);
-//		
-//		ResponseEntity<?> responseEntity = this.restTemplate.exchange(String.format("%s%s", apiGatewayUrl, "v1/accounts"), HttpMethod.PUT, entity, boolean.class);
-//		
-//		return (boolean) responseEntity.getBody();
+		
 	}
 	
 }

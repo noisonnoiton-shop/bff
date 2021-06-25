@@ -3,8 +3,8 @@ package com.skcc.cart.service;
 import java.util.Arrays;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.skcc.cart.domain.Cart;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -13,13 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.skcc.cart.domain.Cart;
-
 @Service
 public class CartService {
-
-	
-	private static final Logger log = LoggerFactory.getLogger(CartService.class);
 
 	@Value("${api.cart.url}")
 	private String apiGatewayUrl;

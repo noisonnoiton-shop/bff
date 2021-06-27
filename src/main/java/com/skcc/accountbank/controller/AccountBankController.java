@@ -22,7 +22,7 @@ public class AccountBankController {
 
 	@GetMapping(value="/accountbanks/{accountId}")
 	public AccountBank findAccountBankByAccountId(@PathVariable long accountId) {
-		return accountBankService.findAccountBankByAccountId(accountId);
+		return this.accountBankService.findAccountBankByAccountId(accountId);
 	}
 	
 }

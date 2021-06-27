@@ -2,18 +2,16 @@ package com.skcc.product.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import com.skcc.product.domain.Product;
 import com.skcc.product.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/v1")
 public class ProductController {
 
 	private ProductService productService;
@@ -23,16 +21,8 @@ public class ProductController {
 		this.productService = productService;
 	}
 	
-	@GetMapping("/product")
-	public String index(HttpServletRequest request, Model model) {
-		HttpSession session = request.getSession();
-		if(session.getAttribute("username") == null) {
-			return "sign";
-		}
-		
-		List<Product> productsList = this.productService.getAllProducts();
-		model.addAttribute(productsList);
-		
-		return "product";
+	@GetMapping("/products")
+	public List<Product> getAllProducts() {
+		return this.productService.getAllProducts();
 	}
 }

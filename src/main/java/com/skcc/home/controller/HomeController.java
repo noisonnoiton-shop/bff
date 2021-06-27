@@ -126,4 +126,16 @@ public class HomeController {
 		return "shoping-cart";
 	}
 	
+	@GetMapping("/product")
+	public String product(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		if(session.getAttribute("username") == null) {
+			return "sign";
+		}
+		
+		List<Product> productsList = this.productService.getAllProducts();
+		model.addAttribute(productsList);
+		
+		return "product";
+	}
 }

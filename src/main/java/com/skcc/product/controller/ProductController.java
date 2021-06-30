@@ -30,17 +30,17 @@ public class ProductController {
 	}
 
 	@GetMapping(value="/products/category/{categoryId}")
-	public List<Product> findByCategoryId(@PathVariable long categoryId){
-		return this.productService.findByCategoryId(categoryId);
+	public List<Product> getByCategoryId(@PathVariable long categoryId){
+		return this.productService.getByCategoryId(categoryId);
 	}
 	
 	@GetMapping(value="/products/sale")
-	public List<Product> findProductOnSale(){
-		return this.productService.findProductOnSale();
+	public List<Product> getProductOnSale(){
+		return this.productService.getProductOnSale();
 	}
 	
 	@GetMapping(value="/products/{id}")
-	public Product findById(@PathVariable(value="id") long id) {
-		return this.productService.findById(id);
+	public Product getById(@PathVariable(value="id") long id) {
+		return this.productService.getById(id);
 	}
 }

@@ -8,13 +8,19 @@ import com.skcc.account.service.AccountService;
 import com.skcc.config.SessionScope;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
+
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1")
+@Slf4j
 public class AccountController {
 
 	private AccountService accountService;
@@ -107,6 +113,29 @@ public class AccountController {
 		}
 		
 		return true;
+	}
+
+	@GetMapping("/accounts/session")
+	public Account shopingCart(HttpServletRequest request) {
+
+		Account account = new Account();
+
+		HttpSession session = request.getSession();
+		if(session.getAttribute("username") == null) {
+			log.info("No session !!!!");
+			
+			account = accountService.findById(1);
+			return account;
+		}
+		
+		account.setId((long) session.getAttribute("id"));
+		account.setUsername((String) session.getAttribute("username"));
+		account.setName((String) session.getAttribute("name"));
+		account.setMobile((String) session.getAttribute("mobile"));
+		account.setScope((String) session.getAttribute("scope"));
+		account.setAddress((String) session.getAttribute("address"));
+
+		return account;
 	}
 	
 }

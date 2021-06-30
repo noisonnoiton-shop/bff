@@ -27,15 +27,15 @@ public class ProductService {
 		return Arrays.asList(this.restTemplate.getForObject(String.format("%s%s", apiGatewayUrl, "/v1/products"), Product[].class));
 	}
 
-	public List<Product> findByCategoryId(long categoryId) {
+	public List<Product> getByCategoryId(long categoryId) {
 		return Arrays.asList(this.restTemplate.getForObject(String.format("%s%s", apiGatewayUrl, "/v1/products/category/" + categoryId), Product[].class));
 	}
 
-	public List<Product> findProductOnSale() {
+	public List<Product> getProductOnSale() {
 		return Arrays.asList(this.restTemplate.getForObject(String.format("%s%s", apiGatewayUrl, "/v1/products/sale"), Product[].class));
 	}
 
-	public Product findById(long id) {
+	public Product getById(long id) {
 		return this.restTemplate.getForObject(String.format("%s%s", apiGatewayUrl, "/v1/products/" + id), Product.class);
 	}
 	

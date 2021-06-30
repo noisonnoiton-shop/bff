@@ -20,7 +20,7 @@ public class AccountBankService {
 		this.restTemplate = restTemplate;
 	}
 	
-	public AccountBank findAccountBankByAccountId(long accountId) {
+	public AccountBank getAccountBankByAccountId(long accountId) {
 		return this.restTemplate.getForObject(String.format("%s%s%d", apiGatewayUrl, "/v1/accountbanks/", accountId), AccountBank.class);
 	}
 }

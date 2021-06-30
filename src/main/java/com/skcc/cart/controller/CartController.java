@@ -1,19 +1,24 @@
 package com.skcc.cart.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.skcc.cart.domain.Cart;
+import com.skcc.cart.service.CartService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skcc.cart.domain.Cart;
-import com.skcc.cart.service.CartService;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1")
 public class CartController {
@@ -23,6 +28,11 @@ public class CartController {
 	@Autowired
 	public CartController(CartService cartService) {
 		this.cartService = cartService;
+	}
+
+	@GetMapping(value="/carts/account/{accountId}")
+	public List<Cart> getCartsByAccountId(@PathVariable long accountId) {
+		return this.cartService.getCartsByAccountId(accountId);
 	}
 	
 	@PutMapping(value="/carts")

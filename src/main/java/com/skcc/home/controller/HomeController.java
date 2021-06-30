@@ -120,7 +120,7 @@ public class HomeController {
 		List<Cart> cartList = this.cartService.getCartsByAccountId((long) session.getAttribute("id"));
 		model.addAttribute(cartList);
 		
-		AccountBank accountBank = this.accountBankService.findAccountBankByAccountId((long) session.getAttribute("id"));
+		AccountBank accountBank = this.accountBankService.getAccountBankByAccountId((long) session.getAttribute("id"));
 		model.addAttribute(accountBank);
 		
 		return "shoping-cart";

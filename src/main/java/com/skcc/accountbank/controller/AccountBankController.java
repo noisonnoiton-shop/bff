@@ -1,6 +1,7 @@
 package com.skcc.accountbank.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skcc.accountbank.domain.AccountBank;
 import com.skcc.accountbank.service.AccountBankService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1")
 public class AccountBankController {
@@ -21,8 +23,8 @@ public class AccountBankController {
 	}
 
 	@GetMapping(value="/accountbanks/{accountId}")
-	public AccountBank findAccountBankByAccountId(@PathVariable long accountId) {
-		return this.accountBankService.findAccountBankByAccountId(accountId);
+	public AccountBank getAccountBankByAccountId(@PathVariable long accountId) {
+		return this.accountBankService.getAccountBankByAccountId(accountId);
 	}
 	
 }

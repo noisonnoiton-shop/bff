@@ -43,7 +43,19 @@ public class AWSXrayConfig {
 		}
 		FilterRegistrationBean registration = new FilterRegistrationBean();
 		registration.setFilter(new AWSXRayServletFilter(from));
-		registration.addUrlPatterns("/*");
+		
+		registration.addUrlPatterns("/v1/*");
+		registration.addUrlPatterns("/logout");
+		registration.addUrlPatterns("/index");
+		registration.addUrlPatterns("/main");
+		registration.addUrlPatterns("/about");
+		registration.addUrlPatterns("/blog");
+		registration.addUrlPatterns("/blog-detail");
+		registration.addUrlPatterns("/contact");
+		registration.addUrlPatterns("/shoping-cart");
+		registration.addUrlPatterns("/product");
+
+
 		return registration;
 	}
 

@@ -1,5 +1,9 @@
 package com.skcc.accountbank.controller;
 
+import com.amazonaws.xray.spring.aop.XRayEnabled;
+import com.skcc.accountbank.domain.AccountBank;
+import com.skcc.accountbank.service.AccountBankService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,12 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skcc.accountbank.domain.AccountBank;
-import com.skcc.accountbank.service.AccountBankService;
-
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/v1")
+@XRayEnabled
 public class AccountBankController {
 	
 	private AccountBankService accountBankService;

@@ -2,6 +2,7 @@ package com.skcc.product.controller;
 
 import java.util.List;
 
+import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.product.domain.Product;
 import com.skcc.product.service.ProductService;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/v1")
+@XRayEnabled
 public class ProductController {
 
 	private ProductService productService;

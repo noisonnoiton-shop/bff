@@ -3,6 +3,7 @@ package com.skcc.account.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.account.domain.Account;
 import com.skcc.account.service.AccountService;
 import com.skcc.config.SessionScope;
@@ -21,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/v1")
 @Slf4j
+@XRayEnabled
 public class AccountController {
 
 	private AccountService accountService;

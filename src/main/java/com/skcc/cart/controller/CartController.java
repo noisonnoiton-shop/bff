@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.cart.domain.Cart;
 import com.skcc.cart.service.CartService;
 
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/v1")
+@XRayEnabled
 public class CartController {
 
 	private CartService cartService;

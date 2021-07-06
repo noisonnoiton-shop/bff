@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/v1")
 @Slf4j
-@XRayEnabled
+// @XRayEnabled
 public class AccountController {
 
 	private AccountService accountService;

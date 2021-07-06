@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/v1")
-@XRayEnabled
+// @XRayEnabled
 public class CategoryController {
 
 	private CategoryService categoryService;

@@ -13,7 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
 @Service
-@XRayEnabled
+// @XRayEnabled
 public class CategoryService {
 	@Value("${api.product.url}")
 	private String apiGatewayUrl;

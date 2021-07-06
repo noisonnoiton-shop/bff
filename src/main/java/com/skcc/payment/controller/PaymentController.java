@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/v1")
-@XRayEnabled
+// @XRayEnabled
 public class PaymentController {
 	
 	private PaymentService paymentService;

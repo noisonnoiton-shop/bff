@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-@XRayEnabled
+// @XRayEnabled
 public class RestService<T> {
 
   private RestTemplate restTemplate;

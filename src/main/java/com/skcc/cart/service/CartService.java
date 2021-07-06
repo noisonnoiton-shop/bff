@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-@XRayEnabled
+// @XRayEnabled
 public class CartService {
 
 	@Value("${api.cart.url}")

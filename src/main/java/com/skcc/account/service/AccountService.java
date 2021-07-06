@@ -10,7 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
 @Service
-@XRayEnabled
+// @XRayEnabled
 public class AccountService {
 
 	@Autowired

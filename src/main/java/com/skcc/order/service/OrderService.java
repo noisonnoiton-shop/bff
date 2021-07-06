@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-@XRayEnabled
+// @XRayEnabled
 public class OrderService {
 
 	@Value("${api.order.url}")

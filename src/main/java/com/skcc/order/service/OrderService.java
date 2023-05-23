@@ -1,6 +1,6 @@
 package com.skcc.order.service;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
+// import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.config.RestService;
 import com.skcc.order.domain.Order;
 

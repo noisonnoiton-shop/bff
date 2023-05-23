@@ -3,7 +3,7 @@ package com.skcc.category.service;
 import java.util.Arrays;
 import java.util.List;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
+// import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.category.domain.Category;
 import com.skcc.config.RestService;
 

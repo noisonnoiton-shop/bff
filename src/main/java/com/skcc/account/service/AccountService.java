@@ -1,6 +1,6 @@
 package com.skcc.account.service;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
+// import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.account.domain.Account;
 import com.skcc.config.RestService;
 

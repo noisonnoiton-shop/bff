@@ -2,7 +2,7 @@ package com.skcc.payment.controller;
 
 import java.util.List;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
+// import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.payment.domain.Payment;
 import com.skcc.payment.service.PaymentService;
 

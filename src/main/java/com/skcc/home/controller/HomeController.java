@@ -15,8 +15,12 @@ import com.skcc.accountbank.domain.AccountBank;
 import com.skcc.accountbank.service.AccountBankService;
 import com.skcc.cart.domain.Cart;
 import com.skcc.cart.service.CartService;
+import com.skcc.config.OtelConfig;
 import com.skcc.product.domain.Product;
 import com.skcc.product.service.ProductService;
+
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.Tracer;
 
 @Controller
 public class HomeController {
@@ -24,12 +28,20 @@ public class HomeController {
 	private ProductService productService;
 	private CartService cartService;
 	private AccountBankService accountBankService;
+	// private OtelConfig otelConfig;
+	private Tracer tracer;
 	
 	@Autowired
-	public HomeController(CartService cartService, ProductService productService, AccountBankService accountBankService) {
+	public HomeController(
+		CartService cartService, ProductService productService, AccountBankService accountBankService, 
+		// OtelConfig otelConfig,
+		Tracer tracer
+	) {
 		this.productService = productService;
 		this.cartService = cartService;
 		this.accountBankService = accountBankService;
+		// this.otelConfig = otelConfig;
+		this.tracer = tracer;
 	}
 	
 	@GetMapping("/logout")
@@ -102,7 +114,7 @@ public class HomeController {
 	}
 	
 	@GetMapping("/shoping-cart")
-	public String shopingCart(HttpServletRequest request, Model model) {
+	public String shopingCart(HttpServletRequest request, Model model) throws Exception {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("username") == null) {
 			return "sign";
@@ -119,8 +131,17 @@ public class HomeController {
 		
 		List<Cart> cartList = this.cartService.getCartsByAccountId((long) session.getAttribute("id"));
 		model.addAttribute(cartList);
+
+		// Tracer tracer = this.otelConfig.openTelemetry().getTracer("accountbank-instrumentation", "1.0.0");
+		Span span = tracer.spanBuilder("bff.AccountBankController.findAccountBankByAccountId").startSpan();
 		
-		AccountBank accountBank = this.accountBankService.getAccountBankByAccountId((long) session.getAttribute("id"));
+		AccountBank accountBank;
+		try {
+			span.setAttribute("accountId", (long) session.getAttribute("id"));
+			accountBank = this.accountBankService.getAccountBankByAccountId((long) session.getAttribute("id"), span);
+		} finally {
+			span.end();
+		}
 		model.addAttribute(accountBank);
 		
 		return "shoping-cart";

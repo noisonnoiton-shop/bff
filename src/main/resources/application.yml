@@ -2,6 +2,14 @@ server:
   port: 8081
 
 
+otel:
+  service:
+    name: bff.manual
+  traces:
+    endpoint: http://localhost:4317
+  jaeger:
+    endpoint: http://localhost:14250
+
 logging:
   level:
     com.amazonaws.xray: DEBUG

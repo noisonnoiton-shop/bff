@@ -1,5 +1,7 @@
 package com.skcc.config;
 
+import java.util.Collections;
+
 // import com.amazonaws.xray.proxies.apache.http.HttpClientBuilder;
 
 // import org.apache.http.impl.client.CloseableHttpClient;
@@ -9,12 +11,17 @@ import org.springframework.context.annotation.Configuration;
 // import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+import com.skcc.filter.RestTemplateHeaderModifierInterceptor;
+
 @Configuration
 public class RestTemplateConfig {
 
 	@Bean
 	public RestTemplate restTemplate() {
-		return new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setInterceptors( Collections.singletonList(new RestTemplateHeaderModifierInterceptor()) );
+        return restTemplate;
+		// return new RestTemplate();
 		// return new RestTemplate(clientHttpRequestFactory());
 	}
 
